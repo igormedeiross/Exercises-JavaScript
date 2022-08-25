@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title> Google Table Chart </title>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+
+            google.charts.load('current', {'packages': ['corechart']});
+
+            function renderChart (){
+
+                let table = new google.visualization.DataTable();
+                table.addColumn('string','categories');
+                table.addColumn('number','values');
+                table.addRows([
+                    ['Rent', 350],
+                    ['Gas', 200],
+                    ['Food', 150],
+                    ['Leisure', 100],
+                    ['Investiments', 200],
+
+                ]);
+         
+         let chart = new google.visualization.PieChart(document.getElementById('chart'));
+         chart.draw(table);
+
+            }
+
+           google.charts.setOnLoadCallback(renderChart);
+          
+        
+        </script>
+    </head>
+    <body>
+        <div id="chart"></div>
+    </body>
+</html>
